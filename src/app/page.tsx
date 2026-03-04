@@ -1,19 +1,17 @@
-"use client";
-
-import { Show, SignOutButton, SignUpButton } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
+import {SignedIn, SignedOut, SignedOutButton, SignedUpButton} from "@clerk/nextjs";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      <h1>Home Page</h1>
-
-      <Show when="signed-out">
-        <SignUpButton mode="modal">Sign Up</SignUpButton>
-      </Show>
-
-      <Show when="signed-in">
-        <SignOutButton>Logout</SignOutButton>
-      </Show>
+      <h1>Home page</h1>
+      <SignedOut>
+        <SignedUpButton mode="modal">Sign Up</SignedUpButton>
+      </SignedOut>
+      <SignedIn>
+        <SignedOutButton mode="modal">Logout</SignedOutButton>
+      </SignedIn>
     </div>
-  );
+  )
 }
